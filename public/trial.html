@@ -1,0 +1,112 @@
+<!-- AIzaSyABc2nuUYJTHIHtIY2x3GaB4qqBn_GMoeY -->
+<html>
+ <head>
+ 	<style>
+ body{
+  background-color: black;
+  margin: 0px;
+ }
+
+  #map {
+   width: 100%;
+   height: 800px;
+ }
+
+.pageheader{
+  position:relative;
+  text-align: center;
+  color: black;
+  height: 6%;
+  width: 100%;
+  display: grid;
+  font-family: Benton Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+.NavBar{
+  background-color: black;
+  overflow: hidden;
+  font-family: Benton Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+.NavBar a{
+  float:left;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  font-family: Benton Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+.NavBar a:hover {
+    background-color: #ddd;
+    color: #00BFFF;
+}
+
+
+</style>
+ </head>
+ <body>
+ 	<div class="pageheader">
+            <div class="NavBar">
+                <a href="/">Home</a>
+                <a href="/pray">Pray</a>
+                <a href="/festival">Festivals</a>
+                <a href="/shop">Shop</a>
+                <a href="/nightlife">Nightlife</a>
+                <a href="/places">Places</a>
+                <a href="/food">Food</a>
+            </div>
+  </div>
+  <div id="map"></div>
+ 	<script>
+	function initMap() {
+
+	  var locations = [
+      ['Marine Drive', 18.941482, 72.823679, 4],
+      ['Gateway of India', 18.9220, 72.8347, 5],
+      ['Goregaon Filmcity', 19.1608, 72.8876, 3],
+      ['Bandra Worli Sealink', 19.0455, 72.8292, 2],
+      ['Chatrapati Shivaji Terminals', 18.9415, 72.8353, 1],
+      ['Asiatic Library', 18.9319, 72.8362, 6],
+      ['Juhu Beach', 19.1095, 72.8241, 7],
+      ['Nehru Planetarium', 18.9901, 72.8148, 8],
+      ['Bandra Fort', 19.0419, 72.8184, 9],
+      ['Girgaum Chowpatty', 18.9545, 72.8126, 10],
+      ['Wankhede Stadium', 18.9388, 72.8258, 11],
+      ['Pagoda', 19.2285, 72.8059, 12]
+    ];
+
+	  var uluru = {lat: 19.0168, lng: 72.8302};
+	  var map = new google.maps.Map(
+	      document.getElementById('map'), {zoom: 12, center: uluru});
+	  for (i=0;i<locations.length;i++)
+	  {
+
+	  	var contentString = '<div id="content">'+locations[i][0]+'</div>'
+      	var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+	  	var marker = new google.maps.Marker({position: new google.maps.LatLng(locations[i][1], locations[i][2]), map: map});
+
+	  	google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      	})(marker, i));
+
+      	google.maps.event.addListener(marker, 'mouseout', (function(marker, i) {
+        return function() {
+          infowindow.close();
+        }
+      	})(marker, i));
+
+	  }
+	}
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABc2nuUYJTHIHtIY2x3GaB4qqBn_GMoeY&callback=initMap">
+    </script>
+ </body>
+</html>

@@ -1,0 +1,112 @@
+<!-- AIzaSyABc2nuUYJTHIHtIY2x3GaB4qqBn_GMoeY -->
+<html>
+ <head>
+ 	<style>
+ body{
+  background-color: black;
+  margin: 0px;
+ }
+
+  #map {
+   width: 100%;
+   height: 800px;
+ }
+
+.pageheader{
+  position:relative;
+  text-align: center;
+  color: black;
+  height: 6%;
+  width: 100%;
+  display: grid;
+  font-family: Benton Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+.NavBar{
+  background-color: black;
+  overflow: hidden;
+  font-family: Benton Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+.NavBar a{
+  float:left;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  font-family: Benton Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+.NavBar a:hover {
+    background-color: #ddd;
+    color: #00BFFF;
+}
+
+
+</style>
+ </head>
+ <body>
+ 	<div class="pageheader">
+            <div class="NavBar">
+                <a href="/">Home</a>
+                <a href="/pray">Pray</a>
+                <a href="/festival">Festivals</a>
+                <a href="/shop">Shop</a>
+                <a href="/nightlife">Nightlife</a>
+                <a href="/places">Places</a>
+                <a href="/food">Food</a>
+            </div>
+  </div>
+ 	<div id="map"></div>
+ 	<script>
+	function initMap() {
+
+	  var locations = [
+      ['Hotel Ramashray', 19.0236, 72.8501, 4],
+      ['SodaBottleOpenerWala', 19.0636, 72.8623, 5],
+      ['Mirchi and Mime', 19.1199, 72.9072, 3],
+      ['K Rustom Ice Cream', 18.9332, 72.8251, 2],
+      ['Bastian', 19.0636, 72.8350, 1],
+      ['Bombay Barbeque', 19.0698, 72.8296, 6],
+      ['Mamagoto', 19.0549, 72.8284, 7],
+      ['Di Bella Coffee', 19.0316, 72.8388, 8],
+      ['Joeys Pizza', 19.1783, 72.8346, 9],
+      ['Yautcha', 19.0609, 72.8630, 10],
+      ['1441 Pizzeria', 19.1467, 72.8291, 11],
+      ['JLWA', 19.0601, 72.8363, 12]
+    ];
+
+	  var uluru = {lat: 19.0549, lng: 72.8284};
+	  var map = new google.maps.Map(
+	      document.getElementById('map'), {zoom: 12, center: uluru});
+	  for (i=0;i<locations.length;i++)
+	  {
+
+	  	var contentString = '<div id="content">'+locations[i][0]+'</div>'
+      	var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+	  	var marker = new google.maps.Marker({position: new google.maps.LatLng(locations[i][1], locations[i][2]), map: map});
+
+	  	google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      	})(marker, i));
+
+      	google.maps.event.addListener(marker, 'mouseout', (function(marker, i) {
+        return function() {
+          infowindow.close();
+        }
+      	})(marker, i));
+
+	  }
+	}
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABc2nuUYJTHIHtIY2x3GaB4qqBn_GMoeY&callback=initMap">
+    </script>
+ </body>
+</html>

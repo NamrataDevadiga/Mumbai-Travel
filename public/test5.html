@@ -1,0 +1,112 @@
+<!-- AIzaSyABc2nuUYJTHIHtIY2x3GaB4qqBn_GMoeY -->
+<html>
+ <head>
+ 	<style>
+ body{
+  background-color: black;
+  margin: 0px;
+ }
+
+  #map {
+   width: 100%;
+   height: 800px;
+ }
+
+.pageheader{
+  position:relative;
+  text-align: center;
+  color: black;
+  height: 6%;
+  width: 100%;
+  display: grid;
+  font-family: Benton Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+.NavBar{
+  background-color: black;
+  overflow: hidden;
+  font-family: Benton Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+.NavBar a{
+  float:left;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  font-family: Benton Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+.NavBar a:hover {
+    background-color: #ddd;
+    color: #00BFFF;
+}
+
+
+</style>
+ </head>
+ <body>
+ 	<div class="pageheader">
+            <div class="NavBar">
+                <a href="/">Home</a>
+                <a href="/pray">Pray</a>
+                <a href="/festival">Festivals</a>
+                <a href="/shop">Shop</a>
+                <a href="/nightlife">Nightlife</a>
+                <a href="/places">Places</a>
+                <a href="/food">Food</a>
+            </div>
+  </div>
+ 	<div id="map"></div>
+ 	<script>
+	function initMap() {
+
+	  var locations = [
+      ['Bombay Cocktail Bar', 19.1387, 72.8331, 4],
+      ['TAP Restobar', 19.0979, 72.8271, 5],
+      ['Tamasha', 19.0059, 72.8274, 3],
+      ['Colaba Social', 18.9217, 72.8323, 2],
+      ['Bombay Adda', 19.0759, 72.8339, 1],
+      ['Tryst', 18.9483, 72.8442, 6],
+      ['True Tram Truck', 19.1033, 72.83144, 7],
+      ['Lord of the Drinks', 19.1402, 72.8332, 8],
+      ['Aer', 18.9937, 72.8203, 9],
+      ['Barrel and Co', 19.1349, 72.8324, 10],
+      ['Rude Lounge', 19.1110, 72.9083, 11],
+      ['Playboy Club', 19.0072, 72.8250, 12]
+    ];
+
+	  var uluru = {lat: 19.0549, lng: 72.8284};
+	  var map = new google.maps.Map(
+	      document.getElementById('map'), {zoom: 12, center: uluru});
+	  for (i=0;i<locations.length;i++)
+	  {
+
+	  	var contentString = '<div id="content">'+locations[i][0]+'</div>'
+      	var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+	  	var marker = new google.maps.Marker({position: new google.maps.LatLng(locations[i][1], locations[i][2]), map: map});
+
+	  	google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      	})(marker, i));
+
+      	google.maps.event.addListener(marker, 'mouseout', (function(marker, i) {
+        return function() {
+          infowindow.close();
+        }
+      	})(marker, i));
+
+	  }
+	}
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABc2nuUYJTHIHtIY2x3GaB4qqBn_GMoeY&callback=initMap">
+    </script>
+ </body>
+</html>

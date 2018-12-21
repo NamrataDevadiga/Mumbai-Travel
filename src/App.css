@@ -1,0 +1,157 @@
+.App {
+  text-align: center;
+}
+
+.pageheader{
+  position:relative;
+  text-align: center;
+  color: black;
+  height: 40%;
+  width: 100%;
+  display: grid;
+}
+
+.NavBar{
+  background-color: black;
+  overflow: hidden;
+}
+
+.NavBar a{
+  float:left;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.NavBar a:hover {
+    background-color: #ddd;
+    color: #00BFFF;
+}
+
+.mainhead{
+  font-size: 100px;
+  color: white;
+}
+
+.head2{
+  font-size: 30px;
+  font-family: georgia,serif;
+  color:white;
+}
+
+.centered{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.topimg{
+  opacity: 0.7;
+}
+
+img {
+    padding: 0;
+    display: block;
+    margin: 0 auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.welcome{
+  text-align: center;
+}
+
+.col-md-10{
+  text-align: justify;
+}
+
+#smallimg{
+  position: relative;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+}
+
+.centertext{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.menu{
+  opacity: 0.5;
+}
+
+.menu1{
+  opacity: 0.7;
+}
+
+#smallimg a:link {
+  text-decoration: none;
+  color:black;
+}
+
+#smallimg a:active {
+  text-decoration: none;
+  color:black;
+}
+
+#smallimg a:visited {
+  text-decoration: none;
+  color:black;
+}
+
+#smallimg a:hover {
+    color: dimgrey;
+    opacity: 0.5;
+}
+
+#smallimg a img:hover {
+    color: dimgrey;
+    opacity: 0.5;
+}
+
+.heading {
+  font-size: 60px;
+  color: black;
+}
+
+.prayimg{
+    padding: 0;
+    display: block;
+    margin: 0 auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+#about {
+  text-align: justify;
+}
+
+#buttons{
+  color: white;
+  background-color: black;
+  width: 50%;
+  height: 70%;
+  top:50%;
+}
+
+
+#buttons:hover {opacity: 0.5}
+
+.button {
+  text-decoration: none;
+  background-color: black;
+  color: white;
+  padding: 5px 10px 5px 10px;
+}
+
+.button:hover {
+    background-color: #ddd;
+    color: #00BFFF;
+    text-decoration: none;
+}
