@@ -2,6 +2,10 @@ Mumbai-Travel is a travel website which helps tourists plan their perfect trip t
 
 To run only the front-end react code enter the directory and run the following command:
   npm start 
+  -
+  
   
 To run the complete application please enter the main directory and then enter the sub directory build and run the following command:
   python my-app.py
+  -
+  
